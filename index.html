@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="todoHead">
+      <h1>Quera Todo</h1>
+    </header>
+    <main>
+      <div id="error"></div>
+      <section class="addTodo">
+        <form action="#">
+          <label for="title">Enter Task Title</label>
+          <input
+            type="text"
+            name="title"
+            class="inp"
+            id="title"
+            placeholder="todo 1"
+          />
+          <label for="desc">Enter Task Description</label>
+          <textarea name="description" class="inp" id="desc" cols="30" rows="4" value=''></textarea>
+          <button id="add">Add Task</button>
+        </form>
+      </section>
+      <article class="todosList"></article>
+    </main>
+    <div id="myModal" class="modal">
+      <div class="modalContent">
+        <header class="modalHeader">
+          <h3>Edit task</h3>
+          <span class="close">&times;</span>
+        </header>
+        <div class="editForm">
+          <label for="editTitle">title</label>
+          <input type="text" id="editTitle" class="modalInp"></input>
+          <label for="editDesc">description</label>
+          <textarea id="editDesc" class="modalInp"></textarea>
+        </div>
+        <div class="footer">
+          <button class="editTask btn modalBtn" onclick="saveHandler()">save</button>
+          <button class="cancel btn modalBtn">cancel</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
