@@ -1,7 +1,7 @@
 const description = document.querySelector("#desc");
 const title = document.querySelector("#title");
 const addBtn = document.querySelector("#add");
-const error = document.querySelector("#error");
+const main = document.querySelector("main");
 const todoList = document.querySelector(".todosList");
 const modal = document.querySelector("#myModal");
 const close = document.querySelector(".close");
@@ -13,7 +13,6 @@ let todoArray = [];
 todoArray = JSON.parse(localStorage.getItem("todos")) || [];
 const doneHandler = (done) => {
   let status = todoArray[done.id].done;
-  console.log(status);
   const checked =
     done.parentElement.previousElementSibling.previousElementSibling
       .lastElementChild;
@@ -93,8 +92,16 @@ const renderTodos = () => {
   }
 };
 renderTodos();
+
 const addTask = (e) => {
   e.preventDefault();
+  const error = document.createElement("div");
+  main.prepend(error);
+  error.classList.add("error");
+  const removeError = () => {
+    error.remove();
+  };
+  setTimeout(removeError, 3000);
   if (!title.value || !description.value) {
     error.innerHTML = "The title or description should not be empty!";
     error.classList.add("errorRed");
@@ -109,7 +116,6 @@ const addTask = (e) => {
     todoArray.push(task);
     localStorage.setItem("todos", JSON.stringify(todoArray));
     error.innerHTML = "Task has been created successfully!";
-    error.classList.remove("errorRed");
     error.classList.add("errorGreen");
     renderTodos();
     title.value = "";
