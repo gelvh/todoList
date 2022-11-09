@@ -27,21 +27,18 @@ h1 {
 main {
   margin: 30px;
 }
-#error {
-  display: none;
+.error {
   height: 50px;
   margin-bottom: 20px;
   border-radius: 5px;
   padding: 15px;
 }
 .errorGreen {
-  display: block !important;
   background-color: #d3e5da;
   color: #4f6959;
   border: #4f6959 0.5px solid;
 }
 .errorRed {
-  display: block !important;
   background-color: #f1d7d8;
   color: #7f4f58;
   border: #7f4f58 0.5px solid;
